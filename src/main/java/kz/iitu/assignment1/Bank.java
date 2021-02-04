@@ -1,12 +1,12 @@
 package kz.iitu.assignment1;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Bank {
-    private ArrayList<Account> accounts;
+    private List<Account> accounts;
     private BankService bankService;
 
-    public Bank(ArrayList<Account> accounts, BankService bankService) {
+    public Bank(List<Account> accounts, BankService bankService) {
         this.accounts = accounts;
         this.bankService = bankService;
     }
@@ -21,11 +21,11 @@ public class Bank {
 
 }
 
-    public ArrayList<Account> getAccounts() {
+    public List<Account> getAccounts() {
         return accounts;
     }
 
-    public void setAccounts(ArrayList<Account> accounts) {
+    public void setAccounts(List<Account> accounts) {
         this.accounts = accounts;
     }
 
