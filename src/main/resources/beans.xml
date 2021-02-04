@@ -3,7 +3,34 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="account1" class="kz.iitu.assignment1.Account">
+        <constructor-arg index="0" value="Nurdaulet"/>
+        <constructor-arg index="1" value="50000"/>
+        <constructor-arg index="2" value="1234567890"/>
+        <constructor-arg  index="3" value="1234"/>
+    </bean>
 
+    <bean id="account2" class="kz.iitu.assignment1.Account">
+        <constructor-arg index="0" value="Erasyl"/>
+        <constructor-arg index="1" value="20000"/>
+        <constructor-arg index="2" value="1122334455"/>
+        <constructor-arg index="3" value="0000"/>
+    </bean>
+
+    <bean id="atm" class="kz.iitu.assignment1.ATM">
+        <constructor-arg index="0" value="Kaspi"/>
+    </bean>
+
+
+    <bean id="bank" class="kz.iitu.assignment1.Bank">
+        <property name="accounts">
+            <list>
+                <ref bean="account1"/>
+                <ref bean="account2"/>
+            </list>
+        </property>
+    <property name="bankService" ref="atm"/>
+    </bean>
 
 
 </beans>
