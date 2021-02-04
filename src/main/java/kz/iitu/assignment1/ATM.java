@@ -11,15 +11,14 @@ public class ATM implements BankService{
         this.ATMName = ATMName;
     }
 
-    private Bank bank;
-    private Account acc;
 
+    private Account acc;
+    private Bank bank;
 
     @Override
     public void menu(Account account) {
         this.acc= account;
-        bank.addBank(acc);
-        bank.showAccounts();
+
         System.out.println("Welcome to " + ATMName + ". Please enter your card:");
         Scanner sc = new Scanner(System.in);
         boolean valid = false;

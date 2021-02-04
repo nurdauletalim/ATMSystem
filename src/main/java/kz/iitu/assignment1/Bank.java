@@ -6,6 +6,8 @@ public class Bank {
     private List<Account> accounts;
     private BankService bankService;
 
+    public Bank(){}
+
     public Bank(List<Account> accounts, BankService bankService) {
         this.accounts = accounts;
         this.bankService = bankService;
