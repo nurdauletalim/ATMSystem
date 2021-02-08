@@ -13,9 +13,6 @@ public class Bank {
         this.bankService = bankService;
     }
 
-    public void addBank(Account acc){
-    accounts.add(acc);
-}
     public void showAccounts(){
     for (Account acc : accounts) {
         System.out.println(acc.toString());

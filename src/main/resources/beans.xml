@@ -17,9 +17,7 @@
         <constructor-arg index="3" value="0000"/>
     </bean>
 
-    <bean id="atm" class="kz.iitu.assignment1.ATM">
-        <constructor-arg index="0" value="Kaspi"/>
-    </bean>
+
 
 
     <bean id="bank" class="kz.iitu.assignment1.Bank">
@@ -29,7 +27,6 @@
                 <ref bean="account2"/>
             </list>
         </property>
-    <property name="bankService" ref="atm"/>
     </bean>
 
 

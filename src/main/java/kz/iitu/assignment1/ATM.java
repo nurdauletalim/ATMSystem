@@ -16,9 +16,7 @@ public class ATM implements BankService{
     private Bank bank;
 
     @Override
-    public void menu(Account account) {
-        this.acc= account;
-
+    public void menu() {
         System.out.println("Welcome to " + ATMName + ". Please enter your card:");
         Scanner sc = new Scanner(System.in);
         boolean valid = false;
@@ -109,6 +107,7 @@ public class ATM implements BankService{
         while (!isTrue){
             if (passCode == acc.getPass()) {
                 isTrue = true;
+                System.out.println("Welcome " + acc.getName() +"!");
             }}
 
         return isTrue;

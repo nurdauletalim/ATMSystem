@@ -9,9 +9,8 @@ public class Main {
 
         Bank bank = context.getBean("bank",Bank.class);
 
-        Account account = bank.getAccounts().get(1);
-        bank.addBank(account);
-        bank.getBankService().menu(account);
+        ATM atm = new ATM("Kaspi");
+        atm.menu();
 
     }
 }
