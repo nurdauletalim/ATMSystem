@@ -1,10 +1,7 @@
 package kz.iitu.assignment1;
 
-import ch.qos.logback.core.net.server.Client;
-
 public interface BankService {
-    void menu();
-    boolean authorize(int card);
+    void menu(Account acc);
     boolean checkPIN(int passCode);
     void checkBalance();
     double withdraw(double amount);

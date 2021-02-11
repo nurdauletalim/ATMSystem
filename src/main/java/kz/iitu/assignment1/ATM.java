@@ -1,7 +1,5 @@
 package kz.iitu.assignment1;
 
-import ch.qos.logback.core.net.server.Client;
-
 import java.util.Scanner;
 
 public class ATM implements BankService{
@@ -16,33 +14,24 @@ public class ATM implements BankService{
     private Bank bank;
 
     @Override
-    public void menu() {
-        System.out.println("Welcome to " + ATMName + ". Please enter your card:");
+    public void menu(Account acc) {
+        this.acc = acc;
+        System.out.println("Welcome to " + ATMName + " bank!");
         Scanner sc = new Scanner(System.in);
-        boolean valid = false;
-        do {
-        int card = sc.nextInt();
-        valid = authorize(card);
-        if(!valid){
-            System.out.println("Error! Try again!");
-        } } while (!valid);
-
-
         int password;
         boolean pValid = false;
         double amount;
-        do{
-            System.out.println("Enter PIN code: ");
+        do {
+            System.out.print("Enter password: ");
             password = sc.nextInt();
-            if (checkPIN(password) == true){
+            if (checkPIN(password) == true) {
                 pValid = true;
                 break;
             } else {
-                System.out.println("Wrong password! Try again!");
+                System.out.println("Wrong password, try again");
             }
-
-        }while (!pValid);
-
+        } while (!pValid);
+        System.out.println("Hello, " + acc.getName() + "! Choose operation: ");
         boolean valid2 = true;
         while (valid2){
             System.out.println("[1] Check balance\n[2] Withdraw\n[3] Top up\n[4] Change PIN\n[5] Exit");
@@ -69,48 +58,17 @@ public class ATM implements BankService{
             if(ch == 5 ){
                 System.exit(0);
             }
-
-
-            valid2 = false;
         }
 
     }
-   
-
     @Override
-    public boolean authorize(int card) {
+    public boolean checkPIN(int passCode){
         boolean isTrue = false;
-        boolean isIt = false;
-        while (!isIt){
-            if (card == acc.getCard()) {
-                isTrue = true;
-                if (card == acc.getCard()){
-                    System.out.println("card is authorized");
-                    isIt = true;
-                    break;
-                }if(isIt == false) {
-                    System.out.println("ERROR!");
-                }
-            }}
-        if(isTrue == false){
-            System.out.println("card is not supported by ATM");
-        }
-        System.out.println(isTrue && isIt);
-        return (isTrue && isIt);
-    }
-
-
-
-    @Override
-    public boolean checkPIN(int passCode) {
-        boolean isTrue = false;
-        while (!isTrue){
             if (passCode == acc.getPass()) {
                 isTrue = true;
-                System.out.println("Welcome " + acc.getName() +"!");
-            }}
-
+            }
         return isTrue;
+
     }
 
     @Override

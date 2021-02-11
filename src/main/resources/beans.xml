@@ -17,16 +17,26 @@
         <constructor-arg index="3" value="0000"/>
     </bean>
 
+    <bean id="account3" class="kz.iitu.assignment1.Account">
+        <constructor-arg index="0" value="Adam"/>
+        <constructor-arg index="1" value="42500"/>
+        <constructor-arg index="2" value="123321123"/>
+        <constructor-arg index="3" value="1111"/>
+    </bean>
 
-
+    <bean id="ATM" class="kz.iitu.assignment1.ATM">
+        <constructor-arg index="0" value="Kaspi"/>
+    </bean>
 
     <bean id="bank" class="kz.iitu.assignment1.Bank">
         <property name="accounts">
             <list>
                 <ref bean="account1"/>
                 <ref bean="account2"/>
+                <ref bean="account3"/>
             </list>
         </property>
+        <property name="bankService" ref="ATM"/>
     </bean>
 
 
